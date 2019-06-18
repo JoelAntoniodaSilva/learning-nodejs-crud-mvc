@@ -32,12 +32,25 @@
 <script src="/js/helper.js"></script>
 
 <script type="text/javascript">
+
+$ (document).ready(function(){
+  $.ajax({
+    type : 'post',
+    url : 'noticia/list',
+  }).done(function(json){
+    console.log(json);
+    makeTableHead('table_noticia',json.header,json.operations);
+    makeTableBody('table_noticia',json.data,json.operations);
+  })
+})
+
   /* TODO
   Implementar requisição assíncrona para listar as
   notícias armazenadas no banco de dados. Utilize
   o endereço '/noticia/list' para receber um JSON
   com todas as notícias presentes no banco de dados.
   */
+
 
 
 </script>
